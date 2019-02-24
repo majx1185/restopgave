@@ -32,16 +32,67 @@
             z-index: 2;
         }
 
-        .navtext {
+        #navtext {
             color: white;
             position: fixed;
             width: 100%;
             text-align: center;
             word-spacing: 9vw;
-            line-height: 0.5;
+            line-height: 0.9;
             font-family: 'barlow';
             z-index: 2;
         }
+
+        .menuborder {
+            border-right: 2px whitesmoke solid;
+            border-left: 2px whitesmoke solid;
+            padding: 0 9vw;
+        }
+
+        @media only screen and (max-width: 900px) {
+
+            #menuknap {
+                font-size: 10vw;
+                color: whitesmoke;
+                position: fixed;
+                z-index: 3;
+                right: 30px;
+                cursor: pointer;
+            }
+
+            nav img {
+                width: 180%
+            }
+
+            #navtext.hidden {
+                display: none;
+            }
+
+            #navtext {
+                line-height: 2.5;
+                width: 20%;
+                right: 10px;
+                top: 100px;
+                background-color: #5DA6AC;
+            }
+
+            .menuborder {
+                border: none;
+            }
+
+        }
+
+        @media only screen and (min-width: 901px) {
+
+            #menuknap {
+                display: none;
+            }
+
+            .hidden {
+                display: block;
+            }
+        }
+
 
         a:link,
         a:visited,
@@ -86,10 +137,12 @@
         h2 {
             font-family: 'king';
             text-align: center;
+            color: #5F5F5F;
         }
 
         p {
             font-family: 'barlow';
+            color: #5F5F5F;
         }
 
         #menukort h3 {
@@ -138,6 +191,7 @@
             margin-left: 125px;
             margin-top: -33px;
             line-height: 0;
+            cursor: pointer;
         }
 
         #menukort {
@@ -213,6 +267,24 @@
             border: none;
         }
 
+        #totop button {
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            background-color: #5DA6AC;
+            color: whitesmoke;
+            border: none;
+            cursor: pointer;
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            z-index: 4;
+        }
+
+        #totop h1 {
+            font-family: 'king';
+            transform: rotate(270deg)
+        }
     </style>
 </head>
 
@@ -226,15 +298,22 @@
     <header>
         <nav>
             <img src="mexiblanket.png" alt="m">
-            <div class="navtext">
+            <div id="menuknap">☰</div>
+            <div id="navtext" class="hidden">
                 <h3 style="font-size: 3vw;">
-                    <a href="#menu">Menu |</a>
-                    <a href="#om">Om |</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#om" class="menuborder">Om</a>
                     <a href="#kontakt">Kontakt</a>
                 </h3>
             </div>
         </nav>
     </header>
+
+    <div id="scrolltop">
+        <div id="totop"><button>
+                <h1>➤</h1>
+            </button></div>
+    </div>
 
     <splash>
         <img src="bluefoodbackgroundbig.jpg" alt="b">
@@ -308,7 +387,26 @@
                 let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1pQgEqdFCFNkHefR2bzAYsMcyQFgTMx2eq0YyztTxcBQ");
                 mad = await jsonData.json();
                 visMad();
+
+                document.querySelector("#menuknap").addEventListener("click", toggleMenu);
             }
+
+            function toggleMenu() {
+                console.log("Toggle menu");
+
+                let erSkjult =
+                    document.querySelector("#navtext").classList.toggle("hidden");
+
+                if (erSkjult == true) {
+                    //menu er nu skjult - ændr menuknap til III
+                    document.querySelector("#menuknap").textContent = "☰";
+
+                } else {
+                    //menu er nu vist - ændr menuknap til X
+                    document.querySelector("#menuknap").textContent = "✗";
+                }
+            }
+
 
             function visMad() {
                 dest.innerHTML = "";
@@ -346,8 +444,25 @@
             }
 
             getJson();
-        }
 
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.querySelector("#scrolltop").style.display = "block";
+                } else {
+                    document.querySelector("#scrolltop").style.display = "none";
+                }
+
+                document.querySelector("#scrolltop").addEventListener("click", topFunction);
+            }
+
+            function topFunction() {
+                document.documentElement.scrollTop = 0;
+            }
+        }
     </script>
 </body>
 
