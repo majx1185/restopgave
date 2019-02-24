@@ -116,6 +116,7 @@
 
         #om {
             background-color: #FAE4ED;
+            padding: 0 20vw;
         }
 
         footer {
@@ -285,6 +286,50 @@
             font-family: 'king';
             transform: rotate(270deg)
         }
+
+        #om h3 {
+            color: #5F5F5F;
+            font-family: 'barlow';
+            text-align: center;
+            font-size: 20px;
+        }
+
+        #kontakt h3 {
+            color: #5F5F5F;
+            font-family: 'barlow';
+            text-align: left;
+            font-size: 20px;
+        }
+
+        #om .ombilleder {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #om img {
+            padding: 1vw;
+        }
+
+        #om h4 {
+            color: #5F5F5F;
+            font-family: 'barlow';
+            text-align: left;
+        }
+
+        #kontakt .konbilleder img {
+            width: 330px;
+        }
+
+        #kontakt .konbogt {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .kontext,
+        konbilleder {
+            flex-grow: 1;
+        }
     </style>
 </head>
 
@@ -360,11 +405,28 @@
         <div id="om">
             <div class="overskrift">
                 <h2 style="font-size: 5vw;">Om</h2>
+                <h3>Restaurant ¡Salud! blev åbnet i forået 2010. Ejerne er Señor Marco Garcia og hans kone Carmen Garcia. </h3>
+                <div class="ombilleder">
+                    <img src="billeder/ompic1.png" alt="dør">
+                    <img src="billeder/ompic2.png" alt="borde">
+                    <img src="billeder/ompic3.png" alt="trappe">
+                </div>
+                <h4>Señor Marco Garcia kom til Danmark i 2009 sammen med hans kone Carmen. De havde indtil da boede i Mexico City, hvor de sammen havde en restaurant. Men på grund af dårlige forhold i Mexico, besluttede de sig at flytte og åbne en ny restaurant et andet sted.</h4>
+                <h4>Det var vigtigt for Señor Carcia at restauranten beholdte sin udstråling og kvalitet. Derfor samarbejder restauranten kun med virksomheder, som tilbyder gode og friske råvarer, samt nogle mexikanske special produkter.</h4>
             </div>
         </div>
         <div id="kontakt">
             <div class="overskrift">
                 <h2 style="font-size: 5vw;">Kontakt</h2>
+                <div class="konbogt">
+                    <div class="kontext">
+                        <h3>Telefon: (+45) 22 43 71 89 <br> Adresse: Nyborgervej 32B, 2400 København NV <br></h3>
+                        <h3>Åbningstider: <br> Man-Tors: 17-23 <br> Fre-Lør: 17-02 <br> Søn: 15-21</h3>
+                    </div>
+                    <div class="konbilleder">
+                        <img src="billeder/googlemaps.png" alt="googlemaps">
+                    </div>
+                </div>
             </div>
         </div>
 
