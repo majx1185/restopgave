@@ -189,7 +189,7 @@
             height: 40px;
             color: whitesmoke;
             text-align: right;
-            margin-left: 125px;
+            margin-left: 165px;
             margin-top: -33px;
             line-height: 0;
             cursor: pointer;
@@ -233,7 +233,7 @@
             position: fixed;
             display: none;
             background-color: rgba(0, 0, 0, 0.76);
-            z-index: 3;
+            z-index: 5;
         }
 
         #popup .madrettext {
@@ -251,6 +251,18 @@
             padding: 4vw 4vw 0 4vw;
             text-align: center;
             font-family: 'barlow';
+        }
+
+        @media only screen and (min-width: 801px) {
+            #indhold {
+                width: 30vw;
+                margin-top: -300px;
+            }
+
+        }
+
+        #indhold p {
+            color: #313131;
         }
 
         #luk {
@@ -336,7 +348,7 @@
 <body>
 
     <div id="popup">
-        <div id="luk"><button>x</button></div>
+        <div id="luk"><button style="font-size: 4vw;">x</button></div>
         <div id="indhold"></div>
     </div>
 
@@ -433,7 +445,7 @@
     </main>
 
     <footer>
-        <p>Footer 2019</p>
+        <p>Restaurant ¡Salud! // 2019</p>
     </footer>
 
     <script>
